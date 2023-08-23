@@ -1,0 +1,49 @@
+7. Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular (que es una persona) y cantidad (puede tener decimales). El titular será obligatorio y la cantidad es opcional. Crear los siguientes métodos para la clase:
+• Un constructor, donde los datos pueden estar vacíos.
+• Los setters y getters para cada uno de los atributos. El atributo no se puede modificar directamente, sólo ingresando o retirando dinero.
+• mostrar(): Muestra los datos de la cuenta.
+• ingresar(cantidad): se ingresa una cantidad a la cuenta, si la cantidad introducida es negativa, no se hará nada.
+• retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en números rojos.
+class Cuenta:
+    def __init__(self, titular, cantidad=0.0):
+        self.titular = titular
+        self.cantidad = cantidad
+
+    def get_titular(self):
+        return self.titular
+
+    def set_titular(self, titular):
+        self.titular = titular
+
+    def get_cantidad(self):
+        return self.cantidad
+
+    def set_cantidad(self, cantidad):
+        self.cantidad = cantidad
+
+    def mostrar(self):
+        print("Titular:", self.titular)
+        print("Cantidad:", self.cantidad)
+
+    def ingresar(self, cantidad):
+        if cantidad > 0:
+            self.cantidad += cantidad
+
+    def retirar(self, cantidad):
+        self.cantidad -= cantidad
+# Crear instancia de cuenta
+Cuenta = Cuenta(titular)
+# Mostrar detalle de la cuenta
+cuenta.mostrar()
+ # Pedir al usuario que ingrese la cantidad (opcional)
+cantidad_ingreso_str = input(“Ingrese la cantidad a ingresar (opcional): ”)
+if cantidad_ingreso_str:
+        cantidad_ingreso = float(cantidad_ingreso_str)
+        cuenta.ingresar(cantidad_ingreso) 
+# Pedir al usuario que ingrese la cantidad a retirar (opcional)
+cantidad_retiro_str = input(“Ingrese la cantidad a retirar (opcional): ”)
+if cantidad_retiro_str:
+        cantidad_retiro = float(cantidad_retiro_str)
+        cuenta.retirar(cantidad_retiro)
+# Mostrar detalle actualizado en la cuenta
+cuenta.mostrar()
